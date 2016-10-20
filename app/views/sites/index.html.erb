@@ -1,0 +1,21 @@
+<div class="uk-container uk-container-center">
+  <p id="notice"><%= notice %></p>
+  <article class="uk-article">
+    <h1 class="uk-article-title">Comic</h1>
+    <form class="uk-form" action="/sites" method="post">
+      <input type="text" name="site[url]" placeholder="Comic URL" class="uk-form-width-large" />
+      <input type="submit" value="登録" class="uk-button" />
+    </form>
+    <ul class="uk-list uk-list-striped">
+    <% @sites.each do |site| %>
+      <li>
+        <i class="uk-icon-book"></i>
+        <%= link_to site.title, site, method: :get, class: 'uk-button-link' %>
+        [<a href="<%= site.url %>" target="_blank" class="uk-button-link">公式</a>]
+        <i class="uk-icon-remove"></i>
+        <%= link_to '削除', site, method: :delete, data: { confirm: '削除してもいいですか?' }, class: 'uk-button-link' %>
+      </li>
+    <% end %>
+    </ul>
+  </article>
+</div>

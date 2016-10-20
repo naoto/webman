@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+<div class="uk-container uk-container-center">
+  <article class="uk-comment">
+    <header class="uk-comment-header">
+      <h4 class="uk-comment-title"><%= @site.title %></h4>
+      <div class="uk-comment-meta">
+        <a href="<%= @site.url %>" target="_blank" class="uk-button-link"><%= @site.url %></a>
+      </div>
+    </header>
+  </article>
+  <ul class="uk-list uk-list-striped">
+    <% @chapters.each do |chapter| %>
+      <li>
+        <a href="<%= chapter.url %>" target="_blank" class="uk-button-link"><%= chapter.date %></a>
+      </li>
+    <% end %>
+  </ul>
+  <%= link_to 'Back', sites_path %>
+</div>

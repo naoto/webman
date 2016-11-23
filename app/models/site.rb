@@ -18,6 +18,8 @@ class Site < ApplicationRecord
       self.title = Cycomi.new(self.url).title
     when /seiga.nicovideo.jp/
       self.title = Nicovideo.new(self.url).title
+    when /chancro.jp/
+      self.title = Chancro.new(self.url).title
     end
     if self.url.empty?
       false
@@ -45,6 +47,8 @@ class Site < ApplicationRecord
       url = Cycomi.new(self.url).chapter_url
     when /seiga.nicovideo.jp/
       url = Nicovideo.new(self.url).chapter_url
+    when /chancro.jp/
+      url = Chancro.new(self.url).chapter_url
     end
 
     if Chapter.where(url: url).empty?

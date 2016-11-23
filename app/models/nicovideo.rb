@@ -6,6 +6,6 @@ class Nicovideo < Webcomic
   end
 
   def chapter_scrap(html)
-    html.at(".info_block.shortcut div.inner a.last")
+    html.search("#episode_list .episode_item").last.at("a")
   end
 end
